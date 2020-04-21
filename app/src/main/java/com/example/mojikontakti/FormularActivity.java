@@ -12,7 +12,10 @@ import android.view.Gravity;
 import android.view.View;
 import android.view.Window;
 import android.widget.ArrayAdapter;
+import android.widget.DatePicker;
+import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.Switch;
 import android.widget.TextView;
 
 import java.text.Normalizer;
@@ -32,13 +35,28 @@ public class FormularActivity extends AppCompatActivity {
         Spinner spinerDrzava = (Spinner) findViewById(R.id.spinnerDrzava);
         Spinner spinerKategorija = (Spinner) findViewById(R.id.spinnerKategorija);
 
-        ArrayList<Kontakt.KATEGORIJA> listaKategorija = new ArrayList<>();
-        listaKategorija.add(Kontakt.KATEGORIJA.OMILJENI);
-        listaKategorija.add(Kontakt.KATEGORIJA.PORODICA);
-        listaKategorija.add(Kontakt.KATEGORIJA.POZNANICI);
-        listaKategorija.add(Kontakt.KATEGORIJA.PRIJATELJI);
+        final EditText etIme = (EditText) findViewById(R.id.editTextIme);
+        final EditText etPrezime = (EditText) findViewById(R.id.editTextPrezime);
+        final EditText etTelefon  = (EditText) findViewById(R.id.editTextTelefon);
+        final EditText etGrad = (EditText) findViewById(R.id.editTextGrad);
+        final EditText etMail = (EditText) findViewById(R.id.editTextMail);
+        final EditText etNadimak = (EditText) findViewById(R.id.editTextNadimak);
+        final EditText etUlica = (EditText) findViewById(R.id.editTextUlica);
+        final EditText etBroj  = (EditText) findViewById(R.id.editTextBroj);
 
-        ArrayAdapter<Kontakt.KATEGORIJA> adapterKategorija = new ArrayAdapter<>(this,R.layout.spinne_item,listaKategorija );
+        Switch swPodsetnik = (Switch)findViewById(R.id.switchUkljuciPodsetnik);
+
+        final DatePicker datePicker = (DatePicker)findViewById(R.id.datePickerRodjendan);
+
+
+
+        ArrayList<String> listaKategorija = new ArrayList<>();
+        listaKategorija.add("OMILJENI");
+        listaKategorija.add("PORODICA");
+        listaKategorija.add("POZNANICI");
+        listaKategorija.add("PRIJATELJI");
+
+        ArrayAdapter<String> adapterKategorija = new ArrayAdapter<>(this,R.layout.spinne_item,listaKategorija );
         spinerKategorija.setAdapter(adapterKategorija);
 
         ArrayList<String> listaDrzava = new ArrayList<>();
@@ -57,6 +75,26 @@ public class FormularActivity extends AppCompatActivity {
         findViewById(R.id.btnDodajKontakt).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                Intent intent = new Intent(FormularActivity.this,IzvestajActivity.class);
+
+            }
+        });
+
+        findViewById(R.id.btnPonisti).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                etBroj.setText("");
+                etGrad.setText("");
+                etIme.setText("");
+                etMail.setText("");
+                etNadimak.setText("");
+                etPrezime.setText("");
+                etTelefon.setText("");
+                etUlica.setText("");
+
+
 
             }
         });
