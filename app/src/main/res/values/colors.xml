@@ -5,4 +5,13 @@
     <color name="colorParniKontakt">#36A0A0A0</color>
     <color name="colorOznakaGrupeAtributa">#3F51B5</color>
     <color name="colorBtnPonisti">#E91E63</color>
+    <color name="colorOpsti">#80FF9800</color>
+    <color name="colorRodjendan">#802196F3</color>
+    <color name="colorAdresa">#804CAF50</color>
+    <color name="colorTelefon">#80009688</color>
+    <color name="colorMail">#80F44336</color>
+
+
+
+
 </resources>

@@ -2,6 +2,7 @@ package com.example.mojikontakti;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.app.ActivityOptions;
 import android.content.Intent;
 import android.os.Build;
@@ -20,9 +21,21 @@ import android.widget.TextView;
 
 import java.text.Normalizer;
 import java.util.ArrayList;
+import java.util.Locale;
 
 public class FormularActivity extends AppCompatActivity {
 
+    public static String ime = "ime";
+    public static String prezime = "prezime";
+    public static String telefon = "telefon";
+    public static String grad = "grad";
+    public static String mail = "mail";
+    public static String nadimak = "nadimak";
+    public static String ulicaIbr = "ulicaIbr";
+    public static String drzava = "drzava";
+    public static String kategorija = "kategorija";
+    public static String podsetnik = "podsetnik";
+    public static String rodjendan = "rodjendan";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,8 +45,8 @@ public class FormularActivity extends AppCompatActivity {
         getSupportActionBar().hide();
 
 
-        Spinner spinerDrzava = (Spinner) findViewById(R.id.spinnerDrzava);
-        Spinner spinerKategorija = (Spinner) findViewById(R.id.spinnerKategorija);
+        final Spinner spinerDrzava = (Spinner) findViewById(R.id.spinnerDrzava);
+        final Spinner spinerKategorija = (Spinner) findViewById(R.id.spinnerKategorija);
 
         final EditText etIme = (EditText) findViewById(R.id.editTextIme);
         final EditText etPrezime = (EditText) findViewById(R.id.editTextPrezime);
@@ -44,7 +57,7 @@ public class FormularActivity extends AppCompatActivity {
         final EditText etUlica = (EditText) findViewById(R.id.editTextUlica);
         final EditText etBroj  = (EditText) findViewById(R.id.editTextBroj);
 
-        Switch swPodsetnik = (Switch)findViewById(R.id.switchUkljuciPodsetnik);
+        final Switch swPodsetnik = (Switch)findViewById(R.id.switchUkljuciPodsetnik);
 
         final DatePicker datePicker = (DatePicker)findViewById(R.id.datePickerRodjendan);
 
@@ -78,6 +91,22 @@ public class FormularActivity extends AppCompatActivity {
 
                 Intent intent = new Intent(FormularActivity.this,IzvestajActivity.class);
 
+                intent.putExtra(ime,etIme.getText().toString());
+                intent.putExtra(prezime,etPrezime.getText().toString());
+                intent.putExtra(ulicaIbr,etUlica.getText().toString()+etBroj.getText().toString());
+                intent.putExtra(mail,etMail.getText().toString());
+                intent.putExtra(nadimak,etNadimak.getText().toString());
+                intent.putExtra(drzava,spinerDrzava.getSelectedItem().toString());
+                intent.putExtra(kategorija,spinerKategorija.getSelectedItem().toString());
+                intent.putExtra(grad,etGrad.getText().toString());
+                intent.putExtra(rodjendan,String.format("%2d.%2d.%4d",datePicker.getDayOfMonth(),datePicker.getMonth(),datePicker.getYear()));
+                intent.putExtra(telefon,etTelefon.getText().toString());
+                intent.putExtra(podsetnik,swPodsetnik.getText().toString());
+
+                /*
+                intent.putExtra(rodjendan,String.format("%2d.%2d.%4d",datePicker.getDayOfMonth(),datePicker.getMonth(),datePicker.getYear()));*/
+
+                startActivity(intent);
             }
         });
 
@@ -87,13 +116,13 @@ public class FormularActivity extends AppCompatActivity {
 
                 etBroj.setText("");
                 etGrad.setText("");
-                etIme.setText("");
+
                 etMail.setText("");
                 etNadimak.setText("");
                 etPrezime.setText("");
                 etTelefon.setText("");
                 etUlica.setText("");
-
+                etIme.setText("");
 
 
             }

@@ -21,7 +21,7 @@
     <string name="labelaKategorija">Категорија</string>
     <string name="switchAktivan">Активан</string>
     <string name="switchNeaktivan">Неактиван</string>
-
+    <string name="labelaIzvestaj">Потврда уноса корисника</string>
     <string name="labelaPodsetnik">Подсетник за рођендан</string>
     <string name="labelaUkljuciPodsetnik">Укључи подсетник</string>
 
