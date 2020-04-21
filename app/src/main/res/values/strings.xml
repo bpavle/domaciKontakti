@@ -1,0 +1,29 @@
+<resources>
+    <string name="app_name">Moji kontakti</string>
+    <string name="btnOmiljeni">Омиљени</string>
+    <string name="btnPrijatelji">Пријатељи</string>
+    <string name="btnPorodoca">Породица</string>
+    <string name="btnPoznanici">Познаници</string>
+    <string name="btnDodajKontakt">Додај контакт</string>
+    <string name="btnOsvezi">Освежи</string>
+    <string name="btnPonisti">Поништи</string>
+    <string name="labelaFormular">Унос новог контакта</string>
+    <string name="labelaOpstiPodaci">Општи подаци</string>
+    <string name="labelaIme">Име</string>
+    <string name="labelaPrezime">Презиме</string>
+    <string name="labelaNadimak">Надимак</string>
+    <string name="labelaUlicaIBroj">Улица и број</string>
+    <string name="labelaAdresa">Адреса</string>
+    <string name="labelaGrad">Град</string>
+    <string name="labelaDrzava">Држава</string>
+    <string name="labelaDodatniPodaci">Додатни подаци</string>
+    <string name="labelaDatumRodjenja">Датум рођења</string>
+    <string name="labelaKategorija">Категорија</string>
+    <string name="switchAktivan">Активан</string>
+    <string name="switchNeaktivan">Неактиван</string>
+
+    <string name="labelaPodsetnik">Подсетник за рођендан</string>
+    <string name="labelaUkljuciPodsetnik">Укључи подсетник</string>
+
+    <string name="labelaKontaktPodaci">Контакт подаци</string>
+</resources>
