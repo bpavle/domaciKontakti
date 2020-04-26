@@ -65,6 +65,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         for(Kontakt k:list){
 
+            assert inflater != null;
             ConstraintLayout cl = (ConstraintLayout) inflater.inflate(R.layout.kontakt,null);
             ConstraintLayout linija=(ConstraintLayout) inflater.inflate(R.layout.linija,null);
             ((TextView)cl.findViewById(R.id.ime)).setText(k.getIme());
@@ -80,6 +81,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             if(brojac != list.size()) scrollView.addView(linija);
         }
 
+        assert inflater != null;
         ConstraintLayout cl = (ConstraintLayout) inflater.inflate(R.layout.donja_dugmad,null);
         scrollView.addView(cl);
         findViewById(R.id.btnDodajKontakt).setOnClickListener(this);
