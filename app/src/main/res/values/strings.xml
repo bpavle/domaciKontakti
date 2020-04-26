@@ -26,4 +26,6 @@
     <string name="labelaUkljuciPodsetnik">Укључи подсетник</string>
 
     <string name="labelaKontaktPodaci">Контакт подаци</string>
+    <string name="logo">Logo</string>
+    <string name="backarrow">backArrow</string>
 </resources>

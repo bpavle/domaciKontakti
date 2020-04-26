@@ -3,6 +3,7 @@ package com.example.mojikontakti;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
@@ -17,34 +18,51 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.zip.Inflater;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+    LinkedList<Kontakt> list = KontaktApi.getMyContacts();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        LinkedList<Kontakt> list = KontaktApi.getMyContacts();
 
         getSupportActionBar().hide();
+        findViewById(R.id.buttonOmiljeni).setOnClickListener(this);
+        findViewById(R.id.buttonPorodica).setOnClickListener(this);
+        findViewById(R.id.buttonPrijatelji).setOnClickListener(this);
+        findViewById(R.id.buttonPoznanici).setOnClickListener(this);
+        findViewById(R.id.imageButton).setOnClickListener(this);
+        prikaziListu(list);
+    }
 
 
-        findViewById(R.id.imageButton).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+    @Override
+    public void onClick(View v) {
+        System.out.println("ID KLIKNUTOG DUGMETA JE "+v.getId()+" a ja zelim "+Integer.toString(R.id.btnOsvezi));
+        switch (v.getId()){
+            case R.id.buttonOmiljeni: prikaziListu(KontaktApi.getContactsFromCategory(Kontakt.KATEGORIJA.OMILJENI));break;
+            case R.id.buttonPrijatelji: prikaziListu(KontaktApi.getContactsFromCategory(Kontakt.KATEGORIJA.PRIJATELJI));break;
+            case R.id.buttonPorodica: prikaziListu(KontaktApi.getContactsFromCategory(Kontakt.KATEGORIJA.PORODICA));break;
+            case R.id.buttonPoznanici:prikaziListu(KontaktApi.getContactsFromCategory(Kontakt.KATEGORIJA.POZNANICI));break;
+            case R.id.imageButton:;
+            case R.id.btnDodajKontakt:
                 Intent intent = new Intent(MainActivity.this,FormularActivity.class);
-                startActivity(intent);
-            }
-        });
+                startActivity(intent);break;
+            case R.id.btnOsvezi: prikaziListu(KontaktApi.getMyContacts());break;
+        }
 
 
 
+    }
 
+    public void prikaziListu(LinkedList<Kontakt> list){
         LinearLayout scrollView = (LinearLayout)findViewById(R.id.scrollViewLinearLayout);
 
         LayoutInflater inflater =(LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-
+       scrollView.removeAllViews();
         int brojac=0;
+
         for(Kontakt k:list){
 
             ConstraintLayout cl = (ConstraintLayout) inflater.inflate(R.layout.kontakt,null);
@@ -53,9 +71,9 @@ public class MainActivity extends AppCompatActivity {
             ((TextView)cl.findViewById(R.id.telefon)).setText(k.getTelefon());
 
             if(Build.VERSION.SDK_INT>= 23)
-            if(brojac %2==0){
-                cl.setBackgroundColor(getColor(R.color.colorParniKontakt));
-            }
+                if(brojac %2==0){
+                    cl.setBackgroundColor(getColor(R.color.colorParniKontakt));
+                }
             brojac++;
 
             scrollView.addView(cl);
@@ -64,15 +82,8 @@ public class MainActivity extends AppCompatActivity {
 
         ConstraintLayout cl = (ConstraintLayout) inflater.inflate(R.layout.donja_dugmad,null);
         scrollView.addView(cl);
-
-        cl.findViewById(R.id.dodajKontakt).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this,FormularActivity.class);
-                startActivity(intent);
-            }
-        });
+        findViewById(R.id.btnDodajKontakt).setOnClickListener(this);
+        findViewById(R.id.btnOsvezi).setOnClickListener(this);
     }
-
 
 }

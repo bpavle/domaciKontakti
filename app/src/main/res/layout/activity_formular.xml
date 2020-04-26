@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingLeft="10dp"
+    android:paddingStart="10dp"
+    android:paddingEnd="10dp"
     tools:context=".FormularActivity">
 
     <ImageView
@@ -61,11 +62,10 @@
 
             <View
                 android:layout_width="match_parent"
-                android:layout_margin="10dp"
                 android:layout_height="2dp"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
-                android:background="#000000"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:background="@color/linija"
                 app:layout_constraintTop_toTopOf="parent" />
 
 
@@ -164,12 +164,10 @@
 
             <View
                 android:layout_width="match_parent"
-                android:layout_margin="10dp"
                 android:layout_height="2dp"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
                 android:layout_marginTop="10dp"
-                android:background="#000000"
+                android:layout_marginBottom="10dp"
+                android:background="@color/linija"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -263,12 +261,10 @@
 
             <View
                 android:layout_width="match_parent"
-                android:layout_margin="10dp"
                 android:layout_height="2dp"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
                 android:layout_marginTop="10dp"
-                android:background="#000000"
+                android:layout_marginBottom="10dp"
+                android:background="@color/linija"
                 app:layout_constraintTop_toTopOf="parent" />
 
 
@@ -353,12 +349,10 @@
 <!--SLEDECA GRUPA-->
             <View
                 android:layout_width="match_parent"
-                android:layout_margin="10dp"
                 android:layout_height="2dp"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
                 android:layout_marginTop="10dp"
-                android:background="#000000"
+                android:layout_marginBottom="10dp"
+                android:background="@color/linija"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -443,11 +437,9 @@
                 android:layout_width="match_parent"
 
                 android:layout_height="2dp"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
                 android:layout_marginTop="10dp"
-                android:layout_margin="10dp"
-                android:background="#000000"
+                android:layout_marginBottom="10dp"
+                android:background="@color/linija"
                 app:layout_constraintTop_toTopOf="parent" />
 
 
